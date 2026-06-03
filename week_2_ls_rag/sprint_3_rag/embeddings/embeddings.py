@@ -1,7 +1,10 @@
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+load_dotenv(override=True)
+
+client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
 
 
 def embed_text(text: str):
@@ -21,8 +24,7 @@ def build_embeddings(chunks):
                 "id": i,
                 "embedding": embedding,
                 "text": chunk["text"],
-                "source": chunk["source"],
-                "header": chunk.get("header"),
+                "metadata": chunk["metadata"],
             }
         )
 
