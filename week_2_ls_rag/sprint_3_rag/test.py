@@ -26,9 +26,34 @@ for r in results:
 
 
 test_queries = [
-    "How to accommodate team changes",
-    "How to scale consumption in docker?",
-    "How to upgrade my subscription?",
+    # Docker Subscription
+    "What subscription plans does Docker offer?",
+    "How can an organization manage Docker subscriptions?",
+    "What features are included in Docker Team plans?",
+    "What features are included in Docker Business plans?",
+    "How do I add members to a Docker organization?",
+    "How can administrators manage user access in Docker?",
+    "What happens when a Docker subscription expires?",
+    "How can an organization review its Docker billing information?",
+    # FastAPI Deployment
+    "What are the recommended options for deploying a FastAPI application?",
+    "What ASGI server can be used to run FastAPI in production?",
+    "What is the role of Uvicorn in FastAPI deployment?",
+    "Why should FastAPI applications use multiple worker processes?",
+    "How can HTTPS be configured for a FastAPI application?",
+    "What is the difference between development and production deployment in FastAPI?",
+    "How can FastAPI be deployed using Docker?",
+    "What considerations are important when deploying FastAPI behind a reverse proxy?",
+    "How should application startup and shutdown events be handled in production?",
+    # Streamlit Deployment
+    "How do I deploy a Streamlit app to Community Cloud?",
+    "What repository providers are supported by Streamlit Community Cloud?",
+    "What files are required before deploying a Streamlit application?",
+    "How do I update a deployed Streamlit application?",
+    "How can secrets be managed in Streamlit Community Cloud?",
+    "What happens when a Streamlit application deployment fails?",
+    "How do I specify Python package dependencies for a Streamlit app?",
+    "How can I share a deployed Streamlit application with other users?",
 ]
 
 
@@ -39,6 +64,8 @@ def evaluate(vector_db):
         print("\nQUERY:", q)
         print("TOP RESULT SCORE:", results[0]["score"])
         print("TOP SOURCE:", results[0]["metadata"])
+        print("TOP TEXT:", results[0]["text"][:300])
+        print("-" * 50)
 
 
 evaluate(vector_db)

@@ -17,7 +17,13 @@ def build_embeddings(chunks):
     vector_db = []
 
     for i, chunk in enumerate(chunks):
-        embedding = embed_text(chunk["text"])
+
+        source = chunk["metadata"]["source"] or "Unknown Source"
+        header = chunk["metadata"]["header"] or "Unknown Header"
+
+        embedding = embed_text(
+            "Source: " + source + " - " + "Header: " + header + "\n" + chunk["text"]
+        )
 
         vector_db.append(
             {
